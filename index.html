@@ -8,8 +8,16 @@
   <body>
     <h2>Welcome to MSAL.js Quickstart</h2>
     <p>
-      Open the browser DevTools and authenticate. The application will break and
-      you can inspect the headers.
+      <ul>
+        <li>Create an App in AD</li>
+        <li>Make sure the only API permissions are DevOps</li>
+        <li>Make sure both "Token" and "ID" are checked in the "Authentication" screen</li>
+        <li>Copy the "client id" from the overview tab and paste it in the JavaScript where it says '{client-id}'</li>
+        <li>Copy the "tenant id" from the overview tab and paste it in the JavaScript where it says '{tenant-id}'</li>
+        <li>Run the app and sign in</li>
+        <li>Open the browser DevTools and authenticate. The application will break and
+            you can inspect the headers.</li>
+      </ul>
     </p>
     <br />
     <h4 id="WelcomeMessage"></h4>
@@ -18,8 +26,8 @@
     <script>
       var msalConfig = {
         auth: {
-          clientId: "<client-id>",
-          authority: "https://login.microsoftonline.com/<tenant-id>"
+          clientId: "{client-id}",
+          authority: "https://login.microsoftonline.com/{tenant-id}"
         },
         cache: {
           cacheLocation: "localStorage",
@@ -98,8 +106,7 @@
         var divWelcome = document.getElementById("WelcomeMessage");
         divWelcome.innerHTML =
           "Welcome " +
-          myMSALObj.getAccount().userName +
-          "to Microsoft Graph API";
+          myMSALObj.getAccount().userName;
         var loginbutton = document.getElementById("SignIn");
         loginbutton.innerHTML = "Sign Out";
         loginbutton.setAttribute("onclick", "signOut();");
